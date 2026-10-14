@@ -1,0 +1,373 @@
+{
+  "label": "fallback",
+  "index_dir": "/Users/samyak/bridge/data/index/88e37c15cf6fc8490b01bc3e8e2c800cec1ac272",
+  "chunks": 130,
+  "sample_description": {
+    "node_id": "java:org.springframework.samples.petclinic.owner.PetController#processCreationForm",
+    "text": "The process creation form step of pet controller."
+  },
+  "questions": [
+    {
+      "question": "How does an owner add a pet?",
+      "semantic_top5": [
+        {
+          "node_id": "java:org.springframework.samples.petclinic.owner.Owner#addPet",
+          "short": "Owner#addPet",
+          "score": 0.7394,
+          "kind": "method",
+          "description": "The add pet step of owner."
+        },
+        {
+          "node_id": "java:org.springframework.samples.petclinic.owner.Pet#addVisit",
+          "short": "Pet#addVisit",
+          "score": 0.692,
+          "kind": "method",
+          "description": "The add visit step of pet."
+        },
+        {
+          "node_id": "java:org.springframework.samples.petclinic.owner.Owner#addVisit",
+          "short": "Owner#addVisit",
+          "score": 0.6916,
+          "kind": "method",
+          "description": "The add visit step of owner."
+        },
+        {
+          "node_id": "java:org.springframework.samples.petclinic.owner.Owner#getPets",
+          "short": "Owner#getPets",
+          "score": 0.6805,
+          "kind": "method",
+          "description": "The get pets step of owner."
+        },
+        {
+          "node_id": "java:org.springframework.samples.petclinic.owner.Owner#getPet(Integer)",
+          "short": "Owner#getPet(Integer)",
+          "score": 0.6774,
+          "kind": "method",
+          "description": "The get pet step of owner."
+        }
+      ],
+      "retrieved_top5": [
+        {
+          "node_id": "java:org.springframework.samples.petclinic.owner.Owner#addPet",
+          "short": "Owner#addPet",
+          "kind": "method",
+          "score": 2.411,
+          "rerank_score": null,
+          "citation": "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Owner.java:97-101",
+          "description": "The add pet step of owner.",
+          "sources": [
+            "semantic",
+            "graph"
+          ]
+        },
+        {
+          "node_id": "java:org.springframework.samples.petclinic.owner.Owner#getPets",
+          "short": "Owner#getPets",
+          "kind": "method",
+          "score": 2.383,
+          "rerank_score": null,
+          "citation": "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Owner.java:93-95",
+          "description": "The get pets step of owner.",
+          "sources": [
+            "semantic",
+            "graph"
+          ]
+        },
+        {
+          "node_id": "java:org.springframework.samples.petclinic.owner.Pet#setBirthDate",
+          "short": "Pet#setBirthDate",
+          "kind": "method",
+          "score": 2.382,
+          "rerank_score": null,
+          "citation": "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Pet.java:61-63",
+          "description": "The set birth date step of pet.",
+          "sources": [
+            "semantic",
+            "graph"
+          ]
+        },
+        {
+          "node_id": "java:org.springframework.samples.petclinic.owner.Pet#getBirthDate",
+          "short": "Pet#getBirthDate",
+          "kind": "method",
+          "score": 2.378,
+          "rerank_score": null,
+          "citation": "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Pet.java:65-67",
+          "description": "The get birth date step of pet.",
+          "sources": [
+            "semantic",
+            "graph"
+          ]
+        },
+        {
+          "node_id": "java:org.springframework.samples.petclinic.owner.Owner#getPet(Integer)",
+          "short": "Owner#getPet(Integer)",
+          "kind": "method",
+          "score": 2.376,
+          "rerank_score": null,
+          "citation": "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Owner.java:117-127",
+          "description": "The get pet step of owner.",
+          "sources": [
+            "semantic",
+            "graph"
+          ]
+        }
+      ],
+      "confidence": "low",
+      "confidence_reason": "not reranked (BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CeArbUPcQ7tjrELx2M4iz'}); scores are lexical and graph priors only",
+      "reranked": false,
+      "rerank_unavailable_reason": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CeArbUPcQ7tjrELx2M4iz'}",
+      "cost_usd": 0.0,
+      "elapsed_s": 1.05,
+      "stage_counts": {
+        "vocab": 3,
+        "semantic": 20,
+        "keyword": 0,
+        "graph": 136,
+        "candidates": 136
+      }
+    },
+    {
+      "question": "Where do we store vet specialties?",
+      "semantic_top5": [
+        {
+          "node_id": "java:org.springframework.samples.petclinic.vet.Vet#getSpecialties",
+          "short": "Vet#getSpecialties",
+          "score": 0.6478,
+          "kind": "method",
+          "description": "The get specialties step of vet."
+        },
+        {
+          "node_id": "java:org.springframework.samples.petclinic.vet.Vet#getNrOfSpecialties",
+          "short": "Vet#getNrOfSpecialties",
+          "score": 0.6418,
+          "kind": "method",
+          "description": "The get nr of specialties step of vet."
+        },
+        {
+          "node_id": "java:org.springframework.samples.petclinic.vet.Vet#getSpecialtiesInternal",
+          "short": "Vet#getSpecialtiesInternal",
+          "score": 0.6299,
+          "kind": "method",
+          "description": "The get specialties internal step of vet."
+        },
+        {
+          "node_id": "java:org.springframework.samples.petclinic.vet.Specialty",
+          "short": "Specialty",
+          "score": 0.621,
+          "kind": "class",
+          "description": "The specialty class."
+        },
+        {
+          "node_id": "java:org.springframework.samples.petclinic.vet.Vet#addSpecialty",
+          "short": "Vet#addSpecialty",
+          "score": 0.6112,
+          "kind": "method",
+          "description": "The add specialty step of vet."
+        }
+      ],
+      "retrieved_top5": [
+        {
+          "node_id": "screen:vets/vetList",
+          "short": "vets/vetList",
+          "kind": "screen",
+          "score": 3.32,
+          "rerank_score": null,
+          "citation": "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/resources/templates/vets/vetList.html:1-57",
+          "description": "The vet list page.",
+          "sources": [
+            "vocab",
+            "semantic",
+            "graph"
+          ]
+        },
+        {
+          "node_id": "java:org.springframework.samples.petclinic.vet.Vet#getNrOfSpecialties",
+          "short": "Vet#getNrOfSpecialties",
+          "kind": "method",
+          "score": 2.354,
+          "rerank_score": null,
+          "citation": "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/vet/Vet.java:66-68",
+          "description": "The get nr of specialties step of vet.",
+          "sources": [
+            "semantic",
+            "graph"
+          ]
+        },
+        {
+          "node_id": "java:org.springframework.samples.petclinic.vet.Vet#getSpecialties",
+          "short": "Vet#getSpecialties",
+          "kind": "method",
+          "score": 2.353,
+          "rerank_score": null,
+          "citation": "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/vet/Vet.java:59-64",
+          "description": "The get specialties step of vet.",
+          "sources": [
+            "semantic",
+            "graph"
+          ]
+        },
+        {
+          "node_id": "java:org.springframework.samples.petclinic.vet.Specialty",
+          "short": "Specialty",
+          "kind": "class",
+          "score": 2.336,
+          "rerank_score": null,
+          "citation": "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/vet/Specialty.java:28-32",
+          "description": "The specialty class.",
+          "sources": [
+            "semantic",
+            "graph"
+          ]
+        },
+        {
+          "node_id": "java:org.springframework.samples.petclinic.vet.Vet#getSpecialtiesInternal",
+          "short": "Vet#getSpecialtiesInternal",
+          "kind": "method",
+          "score": 2.334,
+          "rerank_score": null,
+          "citation": "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/vet/Vet.java:52-57",
+          "description": "The get specialties internal step of vet.",
+          "sources": [
+            "semantic",
+            "graph"
+          ]
+        }
+      ],
+      "confidence": "low",
+      "confidence_reason": "not reranked (BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CeArbWh2Ur8gCF54fL4NF'}); scores are lexical and graph priors only",
+      "reranked": false,
+      "rerank_unavailable_reason": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CeArbWh2Ur8gCF54fL4NF'}",
+      "cost_usd": 0.0,
+      "elapsed_s": 0.51,
+      "stage_counts": {
+        "vocab": 4,
+        "semantic": 20,
+        "keyword": 0,
+        "graph": 130,
+        "candidates": 130
+      }
+    },
+    {
+      "question": "Can a customer book an appointment, and what does that page look like?",
+      "semantic_top5": [
+        {
+          "node_id": "screen:owners/ownerDetails",
+          "short": "owners/ownerDetails",
+          "score": 0.5822,
+          "kind": "screen",
+          "description": "The owner details page."
+        },
+        {
+          "node_id": "screen:pets/createOrUpdateVisitForm",
+          "short": "pets/createOrUpdateVisitForm",
+          "score": 0.5686,
+          "kind": "screen",
+          "description": "The create or update visit form page."
+        },
+        {
+          "node_id": "screen:owners/findOwners",
+          "short": "owners/findOwners",
+          "score": 0.5655,
+          "kind": "screen",
+          "description": "The find owners page."
+        },
+        {
+          "node_id": "screen:owners/createOrUpdateOwnerForm",
+          "short": "owners/createOrUpdateOwnerForm",
+          "score": 0.558,
+          "kind": "screen",
+          "description": "The create or update owner form page."
+        },
+        {
+          "node_id": "screen:fragments/layout",
+          "short": "fragments/layout",
+          "score": 0.5554,
+          "kind": "screen",
+          "description": "The layout page."
+        }
+      ],
+      "retrieved_top5": [
+        {
+          "node_id": "screen:pets/createOrUpdateVisitForm",
+          "short": "pets/createOrUpdateVisitForm",
+          "kind": "screen",
+          "score": 3.336,
+          "rerank_score": null,
+          "citation": "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/resources/templates/pets/createOrUpdateVisitForm.html:1-59",
+          "description": "The create or update visit form page.",
+          "sources": [
+            "vocab",
+            "semantic",
+            "graph"
+          ]
+        },
+        {
+          "node_id": "java:org.springframework.samples.petclinic.owner.Pet#getVisits",
+          "short": "Pet#getVisits",
+          "kind": "method",
+          "score": 2.366,
+          "rerank_score": null,
+          "citation": "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Pet.java:77-79",
+          "description": "The get visits step of pet.",
+          "sources": [
+            "semantic",
+            "graph"
+          ]
+        },
+        {
+          "node_id": "screen:owners/ownerDetails",
+          "short": "owners/ownerDetails",
+          "kind": "screen",
+          "score": 2.347,
+          "rerank_score": null,
+          "citation": "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/resources/templates/owners/ownerDetails.html:1-96",
+          "description": "The owner details page.",
+          "sources": [
+            "semantic",
+            "graph"
+          ]
+        },
+        {
+          "node_id": "screen:owners/findOwners",
+          "short": "owners/findOwners",
+          "kind": "screen",
+          "score": 2.342,
+          "rerank_score": null,
+          "citation": "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/resources/templates/owners/findOwners.html:1-35",
+          "description": "The find owners page.",
+          "sources": [
+            "semantic",
+            "graph"
+          ]
+        },
+        {
+          "node_id": "screen:pets/createOrUpdatePetForm",
+          "short": "pets/createOrUpdatePetForm",
+          "kind": "screen",
+          "score": 2.334,
+          "rerank_score": null,
+          "citation": "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/resources/templates/pets/createOrUpdatePetForm.html:1-34",
+          "description": "The create or update pet form page.",
+          "sources": [
+            "semantic",
+            "graph"
+          ]
+        }
+      ],
+      "confidence": "low",
+      "confidence_reason": "not reranked (BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CeArbbS2n45wBeicBEjHS'}); scores are lexical and graph priors only",
+      "reranked": false,
+      "rerank_unavailable_reason": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CeArbbS2n45wBeicBEjHS'}",
+      "cost_usd": 0.0,
+      "elapsed_s": 1.26,
+      "stage_counts": {
+        "vocab": 3,
+        "semantic": 20,
+        "keyword": 0,
+        "graph": 141,
+        "candidates": 141
+      }
+    }
+  ]
+}

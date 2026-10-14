@@ -1,0 +1,37 @@
+# Bridge's persistent index — one Postgres for every snapshot of every repo.
+#
+#   docker compose up -d
+#   cd backend && .venv/bin/alembic upgrade head
+#
+# On a machine without Docker, `BRIDGE_DATABASE_URL=embedded://` starts the same
+# PostgreSQL 16 + pgvector from the venv instead (backend/bridge/db/engine.py).
+# Same version, same extension, same SQL — only the DSN differs, so both paths
+# are exercised by identical code.
+
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: bridge-postgres
+    environment:
+      POSTGRES_USER: bridge
+      POSTGRES_PASSWORD: bridge
+      POSTGRES_DB: bridge
+      # deterministic collation: index ordering must not depend on the host's locale
+      POSTGRES_INITDB_ARGS: "--locale=C --encoding=UTF8"
+    ports:
+      # 5433, not 5432 — a developer machine often already has a Postgres, and
+      # silently attaching to the wrong one is a bad afternoon.
+      - "5433:5432"
+    volumes:
+      - bridge_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U bridge -d bridge"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+    restart: unless-stopped
+
+volumes:
+  bridge_pgdata:
+    name: bridge_pgdata

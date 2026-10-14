@@ -1,0 +1,126 @@
+# Product vocabulary for spring-petclinic.
+#
+# Maps the words a product person actually uses to the node ids they mean. This
+# is the org-specific layer — it lives in config/, never in Python (design law 7).
+#
+# Each term has:
+#   aliases   — the phrasings that should match. Matched case-insensitively on
+#               word boundaries, so "visit" does not fire inside "visitor".
+#   nodes     — node ids this term resolves to. These are seeds for graph
+#               expansion, not the answer.
+#   expand    — extra words folded into the semantic query. Give the embedding
+#               model the engineering nouns the user did not say.
+#
+# A term is only worth adding when the user's word and the code's word differ.
+# "owner" -> Owner needs no entry; "customer" -> Owner does.
+
+repo: spring-petclinic
+
+terms:
+  - term: owner profile
+    aliases:
+      - owner profile
+      - owner details
+      - owner page
+      - customer profile
+      - customer record
+      - client details
+    nodes:
+      - "java:org.springframework.samples.petclinic.owner.OwnerController"
+      - "entity:org.springframework.samples.petclinic.owner.Owner"
+      - "screen:owners/ownerDetails"
+      - "screen:owners/createOrUpdateOwnerForm"
+    expand: owner details page name address city telephone
+
+  - term: owner search
+    aliases:
+      - owner search
+      - find an owner
+      - find owner
+      - search for a customer
+      - look up an owner
+      - owner list
+    nodes:
+      - "java:org.springframework.samples.petclinic.owner.OwnerRepository"
+      - "screen:owners/findOwners"
+      - "screen:owners/ownersList"
+    expand: search owners by last name paginated results list
+
+  - term: visit
+    aliases:
+      - visit
+      - visits
+      - appointment
+      - appointments
+      - booking
+      - book a visit
+    nodes:
+      - "entity:org.springframework.samples.petclinic.owner.Visit"
+      - "java:org.springframework.samples.petclinic.owner.VisitController"
+      - "screen:pets/createOrUpdateVisitForm"
+    expand: visit appointment date description booked for a pet
+
+  - term: pet
+    aliases:
+      - pet
+      - pets
+      - animal
+      - add a pet
+      - pet record
+    nodes:
+      - "entity:org.springframework.samples.petclinic.owner.Pet"
+      - "java:org.springframework.samples.petclinic.owner.PetController"
+      - "screen:pets/createOrUpdatePetForm"
+    expand: pet name birth date type belongs to an owner
+
+  - term: pet type
+    aliases:
+      - pet type
+      - pet types
+      - species
+      - breed
+      - kind of animal
+    nodes:
+      - "entity:org.springframework.samples.petclinic.owner.PetType"
+      - "java:org.springframework.samples.petclinic.owner.PetTypeRepository"
+    expand: pet type species cat dog hamster selectable list
+
+  - term: vet specialties
+    aliases:
+      - vet specialties
+      - vet specialty
+      - specialties
+      - specialisms
+      - what a vet does
+      - veterinarian skills
+    nodes:
+      - "entity:org.springframework.samples.petclinic.vet.Vet"
+      - "entity:org.springframework.samples.petclinic.vet.Specialty"
+      - "java:org.springframework.samples.petclinic.vet.VetController"
+      - "screen:vets/vetList"
+    expand: veterinarian specialty specialties list radiology surgery dentistry
+
+  - term: vet directory
+    aliases:
+      - vet directory
+      - vet list
+      - list of vets
+      - our veterinarians
+      - find a vet
+    nodes:
+      - "java:org.springframework.samples.petclinic.vet.VetController"
+      - "java:org.springframework.samples.petclinic.vet.VetRepository"
+      - "screen:vets/vetList"
+    expand: veterinarians directory listing paginated page of vets
+
+  - term: home page
+    aliases:
+      - home page
+      - homepage
+      - landing page
+      - welcome page
+      - the front page
+    nodes:
+      - "java:org.springframework.samples.petclinic.system.WelcomeController"
+      - "screen:welcome"
+    expand: welcome landing home first page a visitor sees

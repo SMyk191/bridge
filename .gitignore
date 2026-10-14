@@ -1,0 +1,26 @@
+# cloned target repositories (re-clone; never vendored)
+/data/repos/
+# generated indexes — rebuildable from a repo + sha
+/data/index/
+
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+.DS_Store
+
+# secrets and local state
+.env
+.env.*
+!.env.example
+/data/pg/
+/data/*.sqlite
+/data/runs.sqlite
+
+# frontend
+node_modules/
+dist/
+
+# editor / agent state
+.claude/

@@ -1,0 +1,1858 @@
+{
+  "generated_at": "2026-09-08T05:13:05Z",
+  "index_dir": "/Users/samyak/bridge/data/index/88e37c15cf6fc8490b01bc3e8e2c800cec1ac272",
+  "llm_enabled": false,
+  "rubric_enabled": true,
+  "determinism_enabled": true,
+  "sets": {
+    "petclinic": {
+      "questions": 20,
+      "mean_recall": 0.6923076923076923,
+      "mean_precision": 0.25919343814080653,
+      "core_recall_pct": 66.67,
+      "core_recall_questions": 13,
+      "core_recall_fails": [
+        "pet-weight",
+        "rename-owner-customer",
+        "thread-species-1",
+        "species-list",
+        "book-visit"
+      ],
+      "rubric_scored_count": 0,
+      "rubric_total": 20,
+      "rubric_mean": null,
+      "rubric_unsupported_total": 0,
+      "lane_fails": [],
+      "confidence_fails": [
+        "visit-missing"
+      ],
+      "citation_count_fails": [
+        "changelog-last-month"
+      ],
+      "determinism_checked": 16,
+      "determinism_fails": [],
+      "total_cost_usd": 0.0,
+      "total_elapsed_s": 1.99
+    }
+  },
+  "summary": {
+    "questions": 20,
+    "mean_recall": 0.6923076923076923,
+    "mean_precision": 0.25919343814080653,
+    "core_recall_pct": 66.67,
+    "core_recall_questions": 13,
+    "core_recall_fails": [
+      "pet-weight",
+      "rename-owner-customer",
+      "thread-species-1",
+      "species-list",
+      "book-visit"
+    ],
+    "rubric_scored_count": 0,
+    "rubric_total": 20,
+    "rubric_mean": null,
+    "rubric_unsupported_total": 0,
+    "lane_fails": [],
+    "confidence_fails": [
+      "visit-missing"
+    ],
+    "citation_count_fails": [
+      "changelog-last-month"
+    ],
+    "determinism_checked": 16,
+    "determinism_fails": [],
+    "total_cost_usd": 0.0,
+    "total_elapsed_s": 1.99
+  },
+  "results": [
+    {
+      "id": "add-pet",
+      "question": "What happens when an owner adds a new pet?",
+      "thread": null,
+      "run_id": "run_c71bc9056285478e",
+      "thread_id": "thr_d9764a0c716d413a",
+      "status": "done",
+      "abort_reason": null,
+      "cost_usd": 0.0,
+      "input_tokens": 0,
+      "elapsed_s": 0.1,
+      "expected_files": [
+        "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
+        "src/main/resources/templates/pets/createOrUpdatePetForm.html"
+      ],
+      "core_files": [
+        "src/main/java/org/springframework/samples/petclinic/owner/PetController.java"
+      ],
+      "hit": [
+        "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
+        "src/main/resources/templates/pets/createOrUpdatePetForm.html"
+      ],
+      "missed": [],
+      "core_hit": [
+        "src/main/java/org/springframework/samples/petclinic/owner/PetController.java"
+      ],
+      "core_missed": [],
+      "bonus": [
+        "src/main/java/org/springframework/samples/petclinic/owner/Owner.java"
+      ],
+      "extra": [
+        "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/VisitController.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/PetValidator.java",
+        "src/main/resources/templates/owners/ownerDetails.html"
+      ],
+      "recall": 1.0,
+      "precision": 0.42857142857142855,
+      "core_recall": 1.0,
+      "cited": [
+        "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/VisitController.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/Owner.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/PetValidator.java",
+        "src/main/resources/templates/pets/createOrUpdatePetForm.html",
+        "src/main/resources/templates/owners/ownerDetails.html"
+      ],
+      "lane": "question",
+      "expected_lane": null,
+      "lane_ok": true,
+      "confidence": "low",
+      "expected_confidence": null,
+      "confidence_ok": true,
+      "citations_ok": true,
+      "rubric": {
+        "scored": false,
+        "error": "no judge provider available: disabled by caller (--no-llm)",
+        "correctness": null,
+        "completeness": null,
+        "actionability": null,
+        "mean": null,
+        "raw_correctness": null,
+        "unsupported_claims": [],
+        "reasoning": "",
+        "unresolved_citations": [],
+        "model": "",
+        "cost_usd": 0.0,
+        "input_tokens": 0,
+        "output_tokens": 0
+      },
+      "determinism": {
+        "checked": true,
+        "stable": true,
+        "second_run_id": "run_133aeba97a62491f",
+        "second_citations": [
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Owner.java:117-127",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Owner.java:135-145",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Owner.java:164-174",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Owner.java:47-176",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Owner.java:97-101",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java:77-87",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/PetController.java:100-105",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/PetController.java:107-137",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/PetController.java:144-179",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/PetController.java:186-200",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/PetController.java:47-207",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/PetController.java:67-73",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/PetController.java:75-87",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/PetValidator.java:32-64",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/PetValidator.java:36-54",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/VisitController.java:97-112",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/resources/templates/owners/ownerDetails.html:1-96",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/resources/templates/pets/createOrUpdatePetForm.html:1-34"
+        ]
+      }
+    },
+    {
+      "id": "vet-specialties",
+      "question": "Where are a vet's specialties shown?",
+      "thread": null,
+      "run_id": "run_48623fbc73c646bd",
+      "thread_id": "thr_935f23421e2d4bb5",
+      "status": "done",
+      "abort_reason": null,
+      "cost_usd": 0.0,
+      "input_tokens": 0,
+      "elapsed_s": 0.12,
+      "expected_files": [
+        "src/main/java/org/springframework/samples/petclinic/vet/Vet.java",
+        "src/main/resources/templates/vets/vetList.html"
+      ],
+      "core_files": [
+        "src/main/java/org/springframework/samples/petclinic/vet/Vet.java"
+      ],
+      "hit": [
+        "src/main/java/org/springframework/samples/petclinic/vet/Vet.java",
+        "src/main/resources/templates/vets/vetList.html"
+      ],
+      "missed": [],
+      "core_hit": [
+        "src/main/java/org/springframework/samples/petclinic/vet/Vet.java"
+      ],
+      "core_missed": [],
+      "bonus": [
+        "src/main/java/org/springframework/samples/petclinic/vet/Specialty.java",
+        "src/main/java/org/springframework/samples/petclinic/vet/VetController.java"
+      ],
+      "extra": [
+        "src/main/java/org/springframework/samples/petclinic/vet/Vets.java",
+        "src/main/java/org/springframework/samples/petclinic/vet/VetRepository.java"
+      ],
+      "recall": 1.0,
+      "precision": 0.6666666666666666,
+      "core_recall": 1.0,
+      "cited": [
+        "src/main/java/org/springframework/samples/petclinic/vet/Vet.java",
+        "src/main/java/org/springframework/samples/petclinic/vet/VetController.java",
+        "src/main/java/org/springframework/samples/petclinic/vet/Specialty.java",
+        "src/main/java/org/springframework/samples/petclinic/vet/Vets.java",
+        "src/main/java/org/springframework/samples/petclinic/vet/VetRepository.java",
+        "src/main/resources/templates/vets/vetList.html"
+      ],
+      "lane": "question",
+      "expected_lane": null,
+      "lane_ok": true,
+      "confidence": "low",
+      "expected_confidence": null,
+      "confidence_ok": true,
+      "citations_ok": true,
+      "rubric": {
+        "scored": false,
+        "error": "no judge provider available: disabled by caller (--no-llm)",
+        "correctness": null,
+        "completeness": null,
+        "actionability": null,
+        "mean": null,
+        "raw_correctness": null,
+        "unsupported_claims": [],
+        "reasoning": "",
+        "unresolved_citations": [],
+        "model": "",
+        "cost_usd": 0.0,
+        "input_tokens": 0,
+        "output_tokens": 0
+      },
+      "determinism": {
+        "checked": true,
+        "stable": true,
+        "second_run_id": "run_70bfb5d4584440f8",
+        "second_citations": [
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/vet/Specialty.java:28-32",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/vet/Vet.java:43-74",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/vet/Vet.java:52-57",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/vet/Vet.java:59-64",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/vet/Vet.java:66-68",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/vet/Vet.java:70-72",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/vet/VetController.java:35-74",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/vet/VetController.java:44-48",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/vet/VetController.java:65-72",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/vet/VetRepository.java:38-58",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/vet/VetRepository.java:44-46",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/vet/VetRepository.java:54-56",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/vet/Vets.java:30-43",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/vet/Vets.java:35-41",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/resources/templates/vets/vetList.html:1-57"
+        ]
+      }
+    },
+    {
+      "id": "visit-missing",
+      "question": "A visit isn't appearing on the owner page \u2014 where should I look?",
+      "thread": null,
+      "run_id": "run_52c8fbca2f944443",
+      "thread_id": "thr_2d83bfcc3f764d6b",
+      "status": "done",
+      "abort_reason": null,
+      "cost_usd": 0.0,
+      "input_tokens": 0,
+      "elapsed_s": 0.11,
+      "expected_files": [
+        "src/main/java/org/springframework/samples/petclinic/owner/VisitController.java",
+        "src/main/resources/templates/owners/ownerDetails.html"
+      ],
+      "core_files": [
+        "src/main/java/org/springframework/samples/petclinic/owner/VisitController.java"
+      ],
+      "hit": [
+        "src/main/java/org/springframework/samples/petclinic/owner/VisitController.java",
+        "src/main/resources/templates/owners/ownerDetails.html"
+      ],
+      "missed": [],
+      "core_hit": [
+        "src/main/java/org/springframework/samples/petclinic/owner/VisitController.java"
+      ],
+      "core_missed": [],
+      "bonus": [
+        "src/main/java/org/springframework/samples/petclinic/owner/Visit.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/Owner.java"
+      ],
+      "extra": [
+        "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/Pet.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java",
+        "src/main/resources/templates/owners/ownersList.html",
+        "src/main/resources/templates/owners/findOwners.html"
+      ],
+      "recall": 1.0,
+      "precision": 0.4,
+      "core_recall": 1.0,
+      "cited": [
+        "src/main/java/org/springframework/samples/petclinic/owner/Visit.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/VisitController.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/Owner.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/Pet.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java",
+        "src/main/resources/templates/owners/ownerDetails.html",
+        "src/main/resources/templates/owners/ownersList.html",
+        "src/main/resources/templates/owners/findOwners.html"
+      ],
+      "lane": "bug",
+      "expected_lane": null,
+      "lane_ok": true,
+      "confidence": "low",
+      "expected_confidence": [
+        "medium",
+        "high"
+      ],
+      "confidence_ok": false,
+      "citations_ok": true,
+      "rubric": {
+        "scored": false,
+        "error": "no judge provider available: disabled by caller (--no-llm)",
+        "correctness": null,
+        "completeness": null,
+        "actionability": null,
+        "mean": null,
+        "raw_correctness": null,
+        "unsupported_claims": [],
+        "reasoning": "",
+        "unresolved_citations": [],
+        "model": "",
+        "cost_usd": 0.0,
+        "input_tokens": 0,
+        "output_tokens": 0
+      },
+      "determinism": {
+        "checked": true,
+        "stable": true,
+        "second_run_id": "run_f8a3ebcb90594c69",
+        "second_citations": [
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Owner.java:164-174",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Owner.java:97-101",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java:124-131",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java:133-137",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java:169-177",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java:94-122",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java:45",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Pet.java:77-79",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/PetController.java:67-73",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Visit.java:34-68",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/VisitController.java:42-114",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/VisitController.java:47-49",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/VisitController.java:63-81",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/VisitController.java:97-112",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/resources/templates/owners/findOwners.html:1-35",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/resources/templates/owners/ownerDetails.html:1-96",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/resources/templates/owners/ownersList.html:1-61"
+        ]
+      }
+    },
+    {
+      "id": "pet-weight",
+      "question": "If we add a pet weight field, what's affected?",
+      "thread": null,
+      "run_id": "run_0f7720741b5f4c61",
+      "thread_id": "thr_ee608db36a364142",
+      "status": "done",
+      "abort_reason": null,
+      "cost_usd": 0.0,
+      "input_tokens": 0,
+      "elapsed_s": 0.1,
+      "expected_files": [
+        "src/main/java/org/springframework/samples/petclinic/owner/Pet.java",
+        "src/main/resources/templates/pets/createOrUpdatePetForm.html"
+      ],
+      "core_files": [
+        "src/main/java/org/springframework/samples/petclinic/owner/Pet.java"
+      ],
+      "hit": [
+        "src/main/resources/templates/pets/createOrUpdatePetForm.html"
+      ],
+      "missed": [
+        "src/main/java/org/springframework/samples/petclinic/owner/Pet.java"
+      ],
+      "core_hit": [],
+      "core_missed": [
+        "src/main/java/org/springframework/samples/petclinic/owner/Pet.java"
+      ],
+      "bonus": [
+        "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/PetValidator.java"
+      ],
+      "extra": [
+        "src/main/java/org/springframework/samples/petclinic/owner/PetTypeFormatter.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/VisitController.java",
+        "src/main/java/org/springframework/samples/petclinic/model/BaseEntity.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/Owner.java",
+        "src/main/java/org/springframework/samples/petclinic/model/NamedEntity.java",
+        "src/main/resources/templates/owners/ownerDetails.html"
+      ],
+      "recall": 0.5,
+      "precision": 0.3333333333333333,
+      "core_recall": 0.0,
+      "cited": [
+        "src/main/java/org/springframework/samples/petclinic/owner/PetTypeFormatter.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/VisitController.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/PetValidator.java",
+        "src/main/java/org/springframework/samples/petclinic/model/BaseEntity.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/Owner.java",
+        "src/main/java/org/springframework/samples/petclinic/model/NamedEntity.java",
+        "src/main/resources/templates/pets/createOrUpdatePetForm.html",
+        "src/main/resources/templates/owners/ownerDetails.html"
+      ],
+      "lane": "change_request",
+      "expected_lane": null,
+      "lane_ok": true,
+      "confidence": "low",
+      "expected_confidence": null,
+      "confidence_ok": true,
+      "citations_ok": true,
+      "rubric": {
+        "scored": false,
+        "error": "no judge provider available: disabled by caller (--no-llm)",
+        "correctness": null,
+        "completeness": null,
+        "actionability": null,
+        "mean": null,
+        "raw_correctness": null,
+        "unsupported_claims": [],
+        "reasoning": "",
+        "unresolved_citations": [],
+        "model": "",
+        "cost_usd": 0.0,
+        "input_tokens": 0,
+        "output_tokens": 0
+      },
+      "determinism": {
+        "checked": true,
+        "stable": true,
+        "second_run_id": "run_ae414901363048f2",
+        "second_citations": [
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/model/BaseEntity.java:43-45",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/model/NamedEntity.java:41-43",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Owner.java:117-127",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Owner.java:135-145",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Owner.java:97-101",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/PetController.java:107-137",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/PetController.java:144-179",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/PetController.java:186-200",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/PetController.java:47-207",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/PetController.java:67-73",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/PetController.java:75-87",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/PetTypeFormatter.java:36-62",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/PetTypeFormatter.java:41-43",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/PetValidator.java:32-64",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/PetValidator.java:36-54",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/VisitController.java:63-81",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/resources/templates/owners/ownerDetails.html:1-96",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/resources/templates/pets/createOrUpdatePetForm.html:1-34"
+        ]
+      }
+    },
+    {
+      "id": "find-owner",
+      "question": "How does someone search for an existing customer by surname?",
+      "thread": null,
+      "run_id": "run_3fd6f48fcf9e4949",
+      "thread_id": "thr_8e9bb75906b144b6",
+      "status": "done",
+      "abort_reason": null,
+      "cost_usd": 0.0,
+      "input_tokens": 0,
+      "elapsed_s": 0.1,
+      "expected_files": [
+        "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java"
+      ],
+      "core_files": [
+        "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java"
+      ],
+      "hit": [
+        "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java"
+      ],
+      "missed": [],
+      "core_hit": [
+        "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java"
+      ],
+      "core_missed": [],
+      "bonus": [
+        "src/main/resources/templates/owners/findOwners.html"
+      ],
+      "extra": [
+        "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/PetTypeFormatter.java",
+        "src/main/java/org/springframework/samples/petclinic/model/Person.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/Owner.java"
+      ],
+      "recall": 1.0,
+      "precision": 0.42857142857142855,
+      "core_recall": 1.0,
+      "cited": [
+        "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/PetTypeFormatter.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java",
+        "src/main/java/org/springframework/samples/petclinic/model/Person.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/Owner.java",
+        "src/main/resources/templates/owners/findOwners.html"
+      ],
+      "lane": "question",
+      "expected_lane": null,
+      "lane_ok": true,
+      "confidence": "low",
+      "expected_confidence": null,
+      "confidence_ok": true,
+      "citations_ok": true,
+      "rubric": {
+        "scored": false,
+        "error": "no judge provider available: disabled by caller (--no-llm)",
+        "correctness": null,
+        "completeness": null,
+        "actionability": null,
+        "mean": null,
+        "raw_correctness": null,
+        "unsupported_claims": [],
+        "reasoning": "",
+        "unresolved_citations": [],
+        "model": "",
+        "cost_usd": 0.0,
+        "input_tokens": 0,
+        "output_tokens": 0
+      },
+      "determinism": {
+        "checked": true,
+        "stable": true,
+        "second_run_id": "run_9608a04d02d74209",
+        "second_citations": [
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/model/Person.java:41-43",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/model/Person.java:45-47",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/model/Person.java:49-51",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Owner.java:108-110",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Owner.java:117-127",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Owner.java:147-157",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java:124-131",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java:133-137",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java:48-179",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java:64-70",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java:89-92",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java:94-122",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java:36-62",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java:45",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java:60",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/PetController.java:107-137",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/PetController.java:67-73",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/PetTypeFormatter.java:51-60",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/resources/templates/owners/findOwners.html:1-35"
+        ]
+      }
+    },
+    {
+      "id": "phone-validation",
+      "question": "What stops someone entering a bad phone number for an owner?",
+      "thread": null,
+      "run_id": "run_a42d56a9d12e4915",
+      "thread_id": "thr_cc440c9b9eab44fd",
+      "status": "done",
+      "abort_reason": null,
+      "cost_usd": 0.0,
+      "input_tokens": 0,
+      "elapsed_s": 0.1,
+      "expected_files": [
+        "src/main/java/org/springframework/samples/petclinic/owner/Owner.java"
+      ],
+      "core_files": [
+        "src/main/java/org/springframework/samples/petclinic/owner/Owner.java"
+      ],
+      "hit": [
+        "src/main/java/org/springframework/samples/petclinic/owner/Owner.java"
+      ],
+      "missed": [],
+      "core_hit": [
+        "src/main/java/org/springframework/samples/petclinic/owner/Owner.java"
+      ],
+      "core_missed": [],
+      "bonus": [
+        "src/main/resources/templates/owners/createOrUpdateOwnerForm.html",
+        "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java"
+      ],
+      "extra": [
+        "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java",
+        "src/main/resources/templates/owners/findOwners.html"
+      ],
+      "recall": 1.0,
+      "precision": 0.5,
+      "core_recall": 1.0,
+      "cited": [
+        "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/Owner.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java",
+        "src/main/resources/templates/owners/createOrUpdateOwnerForm.html",
+        "src/main/resources/templates/owners/findOwners.html"
+      ],
+      "lane": "question",
+      "expected_lane": null,
+      "lane_ok": true,
+      "confidence": "low",
+      "expected_confidence": null,
+      "confidence_ok": true,
+      "citations_ok": true,
+      "rubric": {
+        "scored": false,
+        "error": "no judge provider available: disabled by caller (--no-llm)",
+        "correctness": null,
+        "completeness": null,
+        "actionability": null,
+        "mean": null,
+        "raw_correctness": null,
+        "unsupported_claims": [],
+        "reasoning": "",
+        "unresolved_citations": [],
+        "model": "",
+        "cost_usd": 0.0,
+        "input_tokens": 0,
+        "output_tokens": 0
+      },
+      "determinism": {
+        "checked": true,
+        "stable": true,
+        "second_run_id": "run_09f55505517044f0",
+        "second_citations": [
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Owner.java:117-127",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Owner.java:147-157",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Owner.java:69-71",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Owner.java:73-75",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Owner.java:85-87",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Owner.java:89-91",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java:124-131",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java:133-137",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java:144-162",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java:48-179",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java:59-62",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java:64-70",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java:89-92",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java:94-122",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java:36-62",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java:45",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/PetController.java:67-73",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/PetController.java:89-92",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/PetController.java:94-98",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/resources/templates/owners/createOrUpdateOwnerForm.html:1-25",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/resources/templates/owners/findOwners.html:1-35"
+        ]
+      }
+    },
+    {
+      "id": "rename-owner-customer",
+      "question": "We want to rename \"owner\" to \"customer\" everywhere a user can see it. What's the blast radius?",
+      "thread": null,
+      "run_id": "run_ea5980c95a9f43a7",
+      "thread_id": "thr_ee55aba4be3949cf",
+      "status": "done",
+      "abort_reason": null,
+      "cost_usd": 0.0,
+      "input_tokens": 0,
+      "elapsed_s": 0.09,
+      "expected_files": [
+        "src/main/resources/templates/owners/ownerDetails.html",
+        "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java"
+      ],
+      "core_files": [
+        "src/main/resources/templates/owners/ownerDetails.html"
+      ],
+      "hit": [
+        "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java"
+      ],
+      "missed": [
+        "src/main/resources/templates/owners/ownerDetails.html"
+      ],
+      "core_hit": [],
+      "core_missed": [
+        "src/main/resources/templates/owners/ownerDetails.html"
+      ],
+      "bonus": [],
+      "extra": [
+        "src/main/java/org/springframework/samples/petclinic/owner/PetTypeFormatter.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/Owner.java",
+        "src/main/java/org/springframework/samples/petclinic/model/Person.java"
+      ],
+      "recall": 0.5,
+      "precision": 0.2,
+      "core_recall": 0.0,
+      "cited": [
+        "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/PetTypeFormatter.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/Owner.java",
+        "src/main/java/org/springframework/samples/petclinic/model/Person.java"
+      ],
+      "lane": "question",
+      "expected_lane": null,
+      "lane_ok": true,
+      "confidence": "low",
+      "expected_confidence": null,
+      "confidence_ok": true,
+      "citations_ok": true,
+      "rubric": {
+        "scored": false,
+        "error": "no judge provider available: disabled by caller (--no-llm)",
+        "correctness": null,
+        "completeness": null,
+        "actionability": null,
+        "mean": null,
+        "raw_correctness": null,
+        "unsupported_claims": [],
+        "reasoning": "",
+        "unresolved_citations": [],
+        "model": "",
+        "cost_usd": 0.0,
+        "input_tokens": 0,
+        "output_tokens": 0
+      },
+      "determinism": {
+        "checked": true,
+        "stable": true,
+        "second_run_id": "run_4598be94ab0c48a3",
+        "second_citations": [
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/model/Person.java:45-47",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/model/Person.java:49-51",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/model/Person.java:53-55",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Owner.java:147-157",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Owner.java:69-71",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Owner.java:73-75",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Owner.java:77-79",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Owner.java:81-83",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Owner.java:89-91",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java:124-131",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java:133-137",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java:144-162",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java:48-179",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java:59-62",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java:89-92",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java:94-122",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java:36-62",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java:45",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/PetTypeFormatter.java:41-43",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/PetTypeFormatter.java:51-60"
+        ]
+      }
+    },
+    {
+      "id": "how-many-owners",
+      "question": "How many owners signed up last month?",
+      "thread": null,
+      "run_id": "run_f423e0d7dc094d4e",
+      "thread_id": "thr_a3098cd80cee4a51",
+      "status": "done",
+      "abort_reason": null,
+      "cost_usd": 0.0,
+      "input_tokens": 0,
+      "elapsed_s": 0.05,
+      "expected_files": [],
+      "core_files": [],
+      "hit": [],
+      "missed": [],
+      "core_hit": [],
+      "core_missed": [],
+      "bonus": [],
+      "extra": [
+        "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/Owner.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/VisitController.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/Pet.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
+        "src/main/resources/templates/owners/findOwners.html",
+        "src/main/resources/templates/owners/ownerDetails.html",
+        "src/main/resources/templates/owners/ownersList.html"
+      ],
+      "recall": null,
+      "precision": 0.0,
+      "core_recall": null,
+      "cited": [
+        "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/Owner.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/VisitController.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/Pet.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
+        "src/main/resources/templates/owners/findOwners.html",
+        "src/main/resources/templates/owners/ownerDetails.html",
+        "src/main/resources/templates/owners/ownersList.html"
+      ],
+      "lane": "data_question",
+      "expected_lane": "data_question",
+      "lane_ok": true,
+      "confidence": "low",
+      "expected_confidence": null,
+      "confidence_ok": true,
+      "citations_ok": true,
+      "rubric": {
+        "scored": false,
+        "error": "no judge provider available: disabled by caller (--no-llm)",
+        "correctness": null,
+        "completeness": null,
+        "actionability": null,
+        "mean": null,
+        "raw_correctness": null,
+        "unsupported_claims": [],
+        "reasoning": "",
+        "unresolved_citations": [],
+        "model": "",
+        "cost_usd": 0.0,
+        "input_tokens": 0,
+        "output_tokens": 0
+      },
+      "determinism": {
+        "checked": true,
+        "stable": true,
+        "second_run_id": "run_2f41a0d1769841c2",
+        "second_citations": [
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Owner.java:164-174",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Owner.java:47-176",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Owner.java:97-101",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java:124-131",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java:133-137",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java:48-179",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java:72-75",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java:77-87",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java:36-62",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Pet.java:81-83",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/PetController.java:100-105",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/VisitController.java:97-112",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/resources/templates/owners/findOwners.html:1-35",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/resources/templates/owners/ownerDetails.html:1-96",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/resources/templates/owners/ownersList.html:1-61"
+        ]
+      }
+    },
+    {
+      "id": "trap-owners-registered",
+      "question": "How many owners registered last month?",
+      "thread": null,
+      "run_id": "run_23850fa736dc4242",
+      "thread_id": "thr_63d0488151104562",
+      "status": "done",
+      "abort_reason": null,
+      "cost_usd": 0.0,
+      "input_tokens": 0,
+      "elapsed_s": 0.05,
+      "expected_files": [],
+      "core_files": [],
+      "hit": [],
+      "missed": [],
+      "core_hit": [],
+      "core_missed": [],
+      "bonus": [],
+      "extra": [
+        "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/Owner.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/VisitController.java",
+        "src/main/resources/templates/owners/ownerDetails.html",
+        "src/main/resources/templates/owners/ownersList.html",
+        "src/main/resources/templates/owners/findOwners.html"
+      ],
+      "recall": null,
+      "precision": 0.0,
+      "core_recall": null,
+      "cited": [
+        "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/Owner.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/VisitController.java",
+        "src/main/resources/templates/owners/ownerDetails.html",
+        "src/main/resources/templates/owners/ownersList.html",
+        "src/main/resources/templates/owners/findOwners.html"
+      ],
+      "lane": "data_question",
+      "expected_lane": "data_question",
+      "lane_ok": true,
+      "confidence": "low",
+      "expected_confidence": null,
+      "confidence_ok": true,
+      "citations_ok": true,
+      "rubric": {
+        "scored": false,
+        "error": "no judge provider available: disabled by caller (--no-llm)",
+        "correctness": null,
+        "completeness": null,
+        "actionability": null,
+        "mean": null,
+        "raw_correctness": null,
+        "unsupported_claims": [],
+        "reasoning": "",
+        "unresolved_citations": [],
+        "model": "",
+        "cost_usd": 0.0,
+        "input_tokens": 0,
+        "output_tokens": 0
+      },
+      "determinism": {
+        "checked": true,
+        "stable": true,
+        "second_run_id": "run_db0bd5c520f040f6",
+        "second_citations": [
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Owner.java:164-174",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Owner.java:47-176",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Owner.java:97-101",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java:124-131",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java:133-137",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java:48-179",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java:72-75",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java:77-87",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java:94-122",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java:36-62",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/PetController.java:107-137",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/VisitController.java:47-49",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/resources/templates/owners/findOwners.html:1-35",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/resources/templates/owners/ownerDetails.html:1-96",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/resources/templates/owners/ownersList.html:1-61"
+        ]
+      }
+    },
+    {
+      "id": "unanswerable-double-booking",
+      "question": "How does the system stop two owners double-booking the same vet at the same time?",
+      "thread": null,
+      "run_id": "run_5e102e15bf3541dd",
+      "thread_id": "thr_fcd938ca6c144e3c",
+      "status": "done",
+      "abort_reason": null,
+      "cost_usd": 0.0,
+      "input_tokens": 0,
+      "elapsed_s": 0.09,
+      "expected_files": [],
+      "core_files": [],
+      "hit": [],
+      "missed": [],
+      "core_hit": [],
+      "core_missed": [],
+      "bonus": [],
+      "extra": [
+        "src/main/java/org/springframework/samples/petclinic/owner/VisitController.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/Visit.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/Owner.java",
+        "src/main/java/org/springframework/samples/petclinic/vet/VetController.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/Pet.java",
+        "src/main/java/org/springframework/samples/petclinic/vet/Vets.java"
+      ],
+      "recall": null,
+      "precision": 0.0,
+      "core_recall": null,
+      "cited": [
+        "src/main/java/org/springframework/samples/petclinic/owner/VisitController.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/Visit.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/Owner.java",
+        "src/main/java/org/springframework/samples/petclinic/vet/VetController.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/Pet.java",
+        "src/main/java/org/springframework/samples/petclinic/vet/Vets.java"
+      ],
+      "lane": "question",
+      "expected_lane": null,
+      "lane_ok": true,
+      "confidence": "low",
+      "expected_confidence": "low",
+      "confidence_ok": true,
+      "citations_ok": true,
+      "rubric": {
+        "scored": false,
+        "error": "no judge provider available: disabled by caller (--no-llm)",
+        "correctness": null,
+        "completeness": null,
+        "actionability": null,
+        "mean": null,
+        "raw_correctness": null,
+        "unsupported_claims": [],
+        "reasoning": "",
+        "unresolved_citations": [],
+        "model": "",
+        "cost_usd": 0.0,
+        "input_tokens": 0,
+        "output_tokens": 0
+      },
+      "determinism": {
+        "checked": true,
+        "stable": true,
+        "second_run_id": "run_77051b2d8b934fcf",
+        "second_citations": [
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Owner.java:108-110",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Owner.java:117-127",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Owner.java:135-145",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Owner.java:164-174",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Owner.java:97-101",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Pet.java:77-79",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Pet.java:81-83",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/PetController.java:107-137",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/PetController.java:144-179",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/PetController.java:202-205",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/PetController.java:67-73",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/PetController.java:75-87",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Visit.java:34-68",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Visit.java:48-50",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/VisitController.java:42-114",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/VisitController.java:63-81",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/VisitController.java:83-86",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/VisitController.java:97-112",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/vet/VetController.java:59-63",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/vet/Vets.java:30-43"
+        ]
+      }
+    },
+    {
+      "id": "multi-hop-vet-removed",
+      "question": "If we remove a vet from the clinic, what else has to change?",
+      "thread": null,
+      "run_id": "run_ef41daf7fea14b18",
+      "thread_id": "thr_3b86a886c50c44bd",
+      "status": "done",
+      "abort_reason": null,
+      "cost_usd": 0.0,
+      "input_tokens": 0,
+      "elapsed_s": 0.12,
+      "expected_files": [
+        "src/main/java/org/springframework/samples/petclinic/vet/Vet.java",
+        "src/main/java/org/springframework/samples/petclinic/vet/VetController.java",
+        "src/main/resources/templates/vets/vetList.html"
+      ],
+      "core_files": [
+        "src/main/java/org/springframework/samples/petclinic/vet/Vet.java",
+        "src/main/java/org/springframework/samples/petclinic/vet/VetController.java"
+      ],
+      "hit": [
+        "src/main/java/org/springframework/samples/petclinic/vet/Vet.java",
+        "src/main/java/org/springframework/samples/petclinic/vet/VetController.java",
+        "src/main/resources/templates/vets/vetList.html"
+      ],
+      "missed": [],
+      "core_hit": [
+        "src/main/java/org/springframework/samples/petclinic/vet/Vet.java",
+        "src/main/java/org/springframework/samples/petclinic/vet/VetController.java"
+      ],
+      "core_missed": [],
+      "bonus": [
+        "src/main/java/org/springframework/samples/petclinic/vet/Vets.java",
+        "src/main/java/org/springframework/samples/petclinic/vet/VetRepository.java"
+      ],
+      "extra": [
+        "src/main/java/org/springframework/samples/petclinic/owner/Visit.java",
+        "src/main/java/org/springframework/samples/petclinic/PetClinicApplication.java",
+        "src/main/java/org/springframework/samples/petclinic/vet/Specialty.java"
+      ],
+      "recall": 1.0,
+      "precision": 0.625,
+      "core_recall": 1.0,
+      "cited": [
+        "src/main/java/org/springframework/samples/petclinic/vet/VetController.java",
+        "src/main/java/org/springframework/samples/petclinic/vet/Vet.java",
+        "src/main/java/org/springframework/samples/petclinic/vet/Vets.java",
+        "src/main/java/org/springframework/samples/petclinic/vet/VetRepository.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/Visit.java",
+        "src/main/java/org/springframework/samples/petclinic/PetClinicApplication.java",
+        "src/main/java/org/springframework/samples/petclinic/vet/Specialty.java",
+        "src/main/resources/templates/vets/vetList.html"
+      ],
+      "lane": "change_request",
+      "expected_lane": null,
+      "lane_ok": true,
+      "confidence": "low",
+      "expected_confidence": null,
+      "confidence_ok": true,
+      "citations_ok": true,
+      "rubric": {
+        "scored": false,
+        "error": "no judge provider available: disabled by caller (--no-llm)",
+        "correctness": null,
+        "completeness": null,
+        "actionability": null,
+        "mean": null,
+        "raw_correctness": null,
+        "unsupported_claims": [],
+        "reasoning": "",
+        "unresolved_citations": [],
+        "model": "",
+        "cost_usd": 0.0,
+        "input_tokens": 0,
+        "output_tokens": 0
+      },
+      "determinism": {
+        "checked": true,
+        "stable": true,
+        "second_run_id": "run_dee1e3dd3419405a",
+        "second_citations": [
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/PetClinicApplication.java:32-34",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Visit.java:48-50",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/vet/Specialty.java:28-32",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/vet/Vet.java:43-74",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/vet/Vet.java:52-57",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/vet/Vet.java:66-68",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/vet/Vet.java:70-72",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/vet/VetController.java:35-74",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/vet/VetController.java:40-42",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/vet/VetController.java:44-48",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/vet/VetController.java:50-57",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/vet/VetController.java:59-63",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/vet/VetController.java:65-72",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/vet/VetRepository.java:38-58",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/vet/VetRepository.java:44-46",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/vet/VetRepository.java:54-56",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/vet/Vets.java:30-43",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/vet/Vets.java:35-41",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/resources/templates/vets/vetList.html:1-57"
+        ]
+      }
+    },
+    {
+      "id": "multi-hop-owner-transfer",
+      "question": "An owner is transferring one of their pets to a different owner \u2014 what needs to be updated?",
+      "thread": null,
+      "run_id": "run_3e5d501e9f214757",
+      "thread_id": "thr_e5fbc750be414331",
+      "status": "done",
+      "abort_reason": null,
+      "cost_usd": 0.0,
+      "input_tokens": 0,
+      "elapsed_s": 0.1,
+      "expected_files": [
+        "src/main/java/org/springframework/samples/petclinic/owner/Owner.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/Pet.java"
+      ],
+      "core_files": [
+        "src/main/java/org/springframework/samples/petclinic/owner/Owner.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/Pet.java"
+      ],
+      "hit": [
+        "src/main/java/org/springframework/samples/petclinic/owner/Owner.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/Pet.java"
+      ],
+      "missed": [],
+      "core_hit": [
+        "src/main/java/org/springframework/samples/petclinic/owner/Owner.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/Pet.java"
+      ],
+      "core_missed": [],
+      "bonus": [
+        "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java"
+      ],
+      "extra": [
+        "src/main/java/org/springframework/samples/petclinic/model/NamedEntity.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/PetValidator.java",
+        "src/main/resources/templates/pets/createOrUpdatePetForm.html",
+        "src/main/resources/templates/owners/ownerDetails.html"
+      ],
+      "recall": 1.0,
+      "precision": 0.5,
+      "core_recall": 1.0,
+      "cited": [
+        "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/Owner.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/Pet.java",
+        "src/main/java/org/springframework/samples/petclinic/model/NamedEntity.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/PetValidator.java",
+        "src/main/resources/templates/pets/createOrUpdatePetForm.html",
+        "src/main/resources/templates/owners/ownerDetails.html"
+      ],
+      "lane": "question",
+      "expected_lane": null,
+      "lane_ok": true,
+      "confidence": "low",
+      "expected_confidence": null,
+      "confidence_ok": true,
+      "citations_ok": true,
+      "rubric": {
+        "scored": false,
+        "error": "no judge provider available: disabled by caller (--no-llm)",
+        "correctness": null,
+        "completeness": null,
+        "actionability": null,
+        "mean": null,
+        "raw_correctness": null,
+        "unsupported_claims": [],
+        "reasoning": "",
+        "unresolved_citations": [],
+        "model": "",
+        "cost_usd": 0.0,
+        "input_tokens": 0,
+        "output_tokens": 0
+      },
+      "determinism": {
+        "checked": true,
+        "stable": true,
+        "second_run_id": "run_6dfab76309814cd7",
+        "second_citations": [
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/model/NamedEntity.java:41-43",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Owner.java:108-110",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Owner.java:117-127",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Owner.java:135-145",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Owner.java:47-176",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Owner.java:93-95",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Owner.java:97-101",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java:144-162",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Pet.java:44-85",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Pet.java:61-63",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/PetController.java:107-137",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/PetController.java:144-179",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/PetController.java:186-200",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/PetController.java:47-207",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/PetController.java:67-73",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/PetController.java:75-87",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/PetValidator.java:32-64",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/PetValidator.java:36-54",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/resources/templates/owners/ownerDetails.html:1-96",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/resources/templates/pets/createOrUpdatePetForm.html:1-34"
+        ]
+      }
+    },
+    {
+      "id": "changelog-last-commits",
+      "question": "What changed in the last 10 commits?",
+      "thread": null,
+      "run_id": "run_f20c998d0c164ded",
+      "thread_id": "thr_dadb107e96294d67",
+      "status": "done",
+      "abort_reason": null,
+      "cost_usd": 0.0,
+      "input_tokens": 0,
+      "elapsed_s": 0.17,
+      "expected_files": [],
+      "core_files": [],
+      "hit": [],
+      "missed": [],
+      "core_hit": [],
+      "core_missed": [],
+      "bonus": [],
+      "extra": [
+        "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java",
+        "src/main/java/org/springframework/samples/petclinic/PetClinicRuntimeHints.java",
+        "src/main/resources/db/h2/schema.sql",
+        "src/main/resources/messages/messages_hi.properties",
+        "src/test/java/org/springframework/samples/petclinic/service/ClinicServiceTests.java",
+        "src/test/java/org/springframework/samples/petclinic/system/WelcomeControllerTests.java",
+        "src/main/java/org/springframework/samples/petclinic/vet/VetController.java",
+        ".mvn/wrapper/maven-wrapper.properties"
+      ],
+      "recall": null,
+      "precision": 0.0,
+      "core_recall": null,
+      "cited": [
+        "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java",
+        "src/main/java/org/springframework/samples/petclinic/PetClinicRuntimeHints.java",
+        "src/main/resources/db/h2/schema.sql",
+        "src/main/resources/messages/messages_hi.properties",
+        "src/test/java/org/springframework/samples/petclinic/service/ClinicServiceTests.java",
+        "src/test/java/org/springframework/samples/petclinic/system/WelcomeControllerTests.java",
+        "src/main/java/org/springframework/samples/petclinic/vet/VetController.java",
+        ".mvn/wrapper/maven-wrapper.properties"
+      ],
+      "lane": "changelog",
+      "expected_lane": "changelog",
+      "lane_ok": true,
+      "confidence": "-",
+      "expected_confidence": null,
+      "confidence_ok": true,
+      "citations_ok": true,
+      "rubric": {
+        "scored": false,
+        "error": "no judge provider available: disabled by caller (--no-llm)",
+        "correctness": null,
+        "completeness": null,
+        "actionability": null,
+        "mean": null,
+        "raw_correctness": null,
+        "unsupported_claims": [],
+        "reasoning": "",
+        "unresolved_citations": [],
+        "model": "",
+        "cost_usd": 0.0,
+        "input_tokens": 0,
+        "output_tokens": 0
+      },
+      "determinism": {
+        "checked": true,
+        "stable": true,
+        "second_run_id": "run_d3d017f63c174dbb",
+        "second_citations": [
+          "spring-petclinic@0f6e8614:src/main/resources/messages/messages_hi.properties",
+          "spring-petclinic@1312314e:src/main/java/org/springframework/samples/petclinic/vet/VetController.java",
+          "spring-petclinic@51045d16:src/test/java/org/springframework/samples/petclinic/system/WelcomeControllerTests.java",
+          "spring-petclinic@88e37c15:src/main/resources/db/h2/schema.sql",
+          "spring-petclinic@9a5d50cf:.mvn/wrapper/maven-wrapper.properties",
+          "spring-petclinic@bb37aad8:src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java",
+          "spring-petclinic@e0db9b18:src/main/java/org/springframework/samples/petclinic/PetClinicRuntimeHints.java",
+          "spring-petclinic@e0db9b18:src/test/java/org/springframework/samples/petclinic/service/ClinicServiceTests.java"
+        ]
+      }
+    },
+    {
+      "id": "changelog-last-month",
+      "question": "What shipped in the last month?",
+      "thread": null,
+      "run_id": "run_2274c7657d7e47c8",
+      "thread_id": "thr_eb05a97fce234991",
+      "status": "done",
+      "abort_reason": null,
+      "cost_usd": 0.0,
+      "input_tokens": 0,
+      "elapsed_s": 0.02,
+      "expected_files": [],
+      "core_files": [],
+      "hit": [],
+      "missed": [],
+      "core_hit": [],
+      "core_missed": [],
+      "bonus": [],
+      "extra": [],
+      "recall": null,
+      "precision": null,
+      "core_recall": null,
+      "cited": [],
+      "lane": "changelog",
+      "expected_lane": "changelog",
+      "lane_ok": true,
+      "confidence": "-",
+      "expected_confidence": null,
+      "confidence_ok": true,
+      "citations_ok": false,
+      "rubric": {
+        "scored": false,
+        "error": "no judge provider available: disabled by caller (--no-llm)",
+        "correctness": null,
+        "completeness": null,
+        "actionability": null,
+        "mean": null,
+        "raw_correctness": null,
+        "unsupported_claims": [],
+        "reasoning": "",
+        "unresolved_citations": [],
+        "model": "",
+        "cost_usd": 0.0,
+        "input_tokens": 0,
+        "output_tokens": 0
+      },
+      "determinism": {
+        "checked": true,
+        "stable": true,
+        "second_run_id": "run_f72ec60eefdc4464",
+        "second_citations": []
+      }
+    },
+    {
+      "id": "thread-visit-1",
+      "question": "What happens when someone books a visit for their pet?",
+      "thread": "visit-thread",
+      "run_id": "run_6d8db86ecf77407b",
+      "thread_id": "thr_37f1e26b663c440a",
+      "status": "done",
+      "abort_reason": null,
+      "cost_usd": 0.0,
+      "input_tokens": 0,
+      "elapsed_s": 0.11,
+      "expected_files": [
+        "src/main/java/org/springframework/samples/petclinic/owner/VisitController.java",
+        "src/main/resources/templates/pets/createOrUpdateVisitForm.html"
+      ],
+      "core_files": [
+        "src/main/java/org/springframework/samples/petclinic/owner/VisitController.java"
+      ],
+      "hit": [
+        "src/main/java/org/springframework/samples/petclinic/owner/VisitController.java"
+      ],
+      "missed": [
+        "src/main/resources/templates/pets/createOrUpdateVisitForm.html"
+      ],
+      "core_hit": [
+        "src/main/java/org/springframework/samples/petclinic/owner/VisitController.java"
+      ],
+      "core_missed": [],
+      "bonus": [
+        "src/main/java/org/springframework/samples/petclinic/owner/Visit.java"
+      ],
+      "extra": [
+        "src/main/java/org/springframework/samples/petclinic/owner/Owner.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/Pet.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/PetValidator.java",
+        "src/main/resources/templates/pets/createOrUpdatePetForm.html",
+        "src/main/resources/templates/owners/ownerDetails.html"
+      ],
+      "recall": 0.5,
+      "precision": 0.25,
+      "core_recall": 1.0,
+      "cited": [
+        "src/main/java/org/springframework/samples/petclinic/owner/Visit.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/VisitController.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/Owner.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/Pet.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/PetValidator.java",
+        "src/main/resources/templates/pets/createOrUpdatePetForm.html",
+        "src/main/resources/templates/owners/ownerDetails.html"
+      ],
+      "lane": "question",
+      "expected_lane": null,
+      "lane_ok": true,
+      "confidence": "low",
+      "expected_confidence": null,
+      "confidence_ok": true,
+      "citations_ok": true,
+      "rubric": {
+        "scored": false,
+        "error": "no judge provider available: disabled by caller (--no-llm)",
+        "correctness": null,
+        "completeness": null,
+        "actionability": null,
+        "mean": null,
+        "raw_correctness": null,
+        "unsupported_claims": [],
+        "reasoning": "",
+        "unresolved_citations": [],
+        "model": "",
+        "cost_usd": 0.0,
+        "input_tokens": 0,
+        "output_tokens": 0
+      },
+      "determinism": {
+        "checked": false,
+        "stable": null,
+        "reason": "threaded follow-up \u2014 see run_full.py's note on why only standalone questions are determinism-checked"
+      }
+    },
+    {
+      "id": "thread-visit-2",
+      "question": "And what stops them from booking it for a date in the past?",
+      "thread": "visit-thread",
+      "run_id": "run_c8ce9962441f4a6d",
+      "thread_id": "thr_37f1e26b663c440a",
+      "status": "done",
+      "abort_reason": null,
+      "cost_usd": 0.0,
+      "input_tokens": 0,
+      "elapsed_s": 0.13,
+      "expected_files": [],
+      "core_files": [],
+      "hit": [],
+      "missed": [],
+      "core_hit": [],
+      "core_missed": [],
+      "bonus": [],
+      "extra": [
+        "src/main/java/org/springframework/samples/petclinic/owner/VisitController.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/Visit.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/Pet.java",
+        "src/main/java/org/springframework/samples/petclinic/model/BaseEntity.java",
+        "src/main/java/org/springframework/samples/petclinic/PetClinicRuntimeHints.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/PetValidator.java"
+      ],
+      "recall": null,
+      "precision": 0.0,
+      "core_recall": null,
+      "cited": [
+        "src/main/java/org/springframework/samples/petclinic/owner/VisitController.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/Visit.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/Pet.java",
+        "src/main/java/org/springframework/samples/petclinic/model/BaseEntity.java",
+        "src/main/java/org/springframework/samples/petclinic/PetClinicRuntimeHints.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/PetValidator.java"
+      ],
+      "lane": "question",
+      "expected_lane": null,
+      "lane_ok": true,
+      "confidence": "low",
+      "expected_confidence": [
+        "low",
+        "medium"
+      ],
+      "confidence_ok": true,
+      "citations_ok": true,
+      "rubric": {
+        "scored": false,
+        "error": "no judge provider available: disabled by caller (--no-llm)",
+        "correctness": null,
+        "completeness": null,
+        "actionability": null,
+        "mean": null,
+        "raw_correctness": null,
+        "unsupported_claims": [],
+        "reasoning": "",
+        "unresolved_citations": [],
+        "model": "",
+        "cost_usd": 0.0,
+        "input_tokens": 0,
+        "output_tokens": 0
+      },
+      "determinism": {
+        "checked": false,
+        "stable": null,
+        "reason": "threaded follow-up \u2014 see run_full.py's note on why only standalone questions are determinism-checked"
+      }
+    },
+    {
+      "id": "thread-species-1",
+      "question": "What types of pets can an owner register?",
+      "thread": "species-thread",
+      "run_id": "run_535e568bafb44bc0",
+      "thread_id": "thr_6c1fe99ff0ad4553",
+      "status": "done",
+      "abort_reason": null,
+      "cost_usd": 0.0,
+      "input_tokens": 0,
+      "elapsed_s": 0.09,
+      "expected_files": [
+        "src/main/java/org/springframework/samples/petclinic/owner/PetType.java"
+      ],
+      "core_files": [
+        "src/main/java/org/springframework/samples/petclinic/owner/PetType.java"
+      ],
+      "hit": [],
+      "missed": [
+        "src/main/java/org/springframework/samples/petclinic/owner/PetType.java"
+      ],
+      "core_hit": [],
+      "core_missed": [
+        "src/main/java/org/springframework/samples/petclinic/owner/PetType.java"
+      ],
+      "bonus": [
+        "src/main/java/org/springframework/samples/petclinic/owner/PetController.java"
+      ],
+      "extra": [
+        "src/main/java/org/springframework/samples/petclinic/owner/Owner.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/PetValidator.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/Pet.java",
+        "src/main/resources/templates/pets/createOrUpdatePetForm.html",
+        "src/main/resources/templates/owners/ownerDetails.html",
+        "src/main/resources/templates/owners/ownersList.html"
+      ],
+      "recall": 0.0,
+      "precision": 0.125,
+      "core_recall": 0.0,
+      "cited": [
+        "src/main/java/org/springframework/samples/petclinic/owner/Owner.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/PetValidator.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/Pet.java",
+        "src/main/resources/templates/pets/createOrUpdatePetForm.html",
+        "src/main/resources/templates/owners/ownerDetails.html",
+        "src/main/resources/templates/owners/ownersList.html"
+      ],
+      "lane": "question",
+      "expected_lane": null,
+      "lane_ok": true,
+      "confidence": "low",
+      "expected_confidence": null,
+      "confidence_ok": true,
+      "citations_ok": true,
+      "rubric": {
+        "scored": false,
+        "error": "no judge provider available: disabled by caller (--no-llm)",
+        "correctness": null,
+        "completeness": null,
+        "actionability": null,
+        "mean": null,
+        "raw_correctness": null,
+        "unsupported_claims": [],
+        "reasoning": "",
+        "unresolved_citations": [],
+        "model": "",
+        "cost_usd": 0.0,
+        "input_tokens": 0,
+        "output_tokens": 0
+      },
+      "determinism": {
+        "checked": false,
+        "stable": null,
+        "reason": "threaded follow-up \u2014 see run_full.py's note on why only standalone questions are determinism-checked"
+      }
+    },
+    {
+      "id": "thread-species-2",
+      "question": "Could a product manager add a new one without an engineer?",
+      "thread": "species-thread",
+      "run_id": "run_85b2fa9907df4388",
+      "thread_id": "thr_6c1fe99ff0ad4553",
+      "status": "done",
+      "abort_reason": null,
+      "cost_usd": 0.0,
+      "input_tokens": 0,
+      "elapsed_s": 0.13,
+      "expected_files": [],
+      "core_files": [],
+      "hit": [],
+      "missed": [],
+      "core_hit": [],
+      "core_missed": [],
+      "bonus": [],
+      "extra": [
+        "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/Owner.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java",
+        "src/main/resources/templates/pets/createOrUpdatePetForm.html"
+      ],
+      "recall": null,
+      "precision": 0.0,
+      "core_recall": null,
+      "cited": [
+        "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/Owner.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java",
+        "src/main/resources/templates/pets/createOrUpdatePetForm.html"
+      ],
+      "lane": "change_request",
+      "expected_lane": null,
+      "lane_ok": true,
+      "confidence": "low",
+      "expected_confidence": null,
+      "confidence_ok": true,
+      "citations_ok": true,
+      "rubric": {
+        "scored": false,
+        "error": "no judge provider available: disabled by caller (--no-llm)",
+        "correctness": null,
+        "completeness": null,
+        "actionability": null,
+        "mean": null,
+        "raw_correctness": null,
+        "unsupported_claims": [],
+        "reasoning": "",
+        "unresolved_citations": [],
+        "model": "",
+        "cost_usd": 0.0,
+        "input_tokens": 0,
+        "output_tokens": 0
+      },
+      "determinism": {
+        "checked": false,
+        "stable": null,
+        "reason": "threaded follow-up \u2014 see run_full.py's note on why only standalone questions are determinism-checked"
+      }
+    },
+    {
+      "id": "species-list",
+      "question": "Where does the list of animal species come from when adding a pet?",
+      "thread": null,
+      "run_id": "run_e36d230538944901",
+      "thread_id": "thr_f58741b62fc64cdd",
+      "status": "done",
+      "abort_reason": null,
+      "cost_usd": 0.0,
+      "input_tokens": 0,
+      "elapsed_s": 0.1,
+      "expected_files": [
+        "src/main/java/org/springframework/samples/petclinic/owner/PetType.java"
+      ],
+      "core_files": [
+        "src/main/java/org/springframework/samples/petclinic/owner/PetType.java"
+      ],
+      "hit": [],
+      "missed": [
+        "src/main/java/org/springframework/samples/petclinic/owner/PetType.java"
+      ],
+      "core_hit": [],
+      "core_missed": [
+        "src/main/java/org/springframework/samples/petclinic/owner/PetType.java"
+      ],
+      "bonus": [
+        "src/main/java/org/springframework/samples/petclinic/owner/PetTypeRepository.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/PetController.java"
+      ],
+      "extra": [
+        "src/main/java/org/springframework/samples/petclinic/owner/Owner.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/Pet.java",
+        "src/main/resources/templates/pets/createOrUpdatePetForm.html",
+        "src/main/resources/templates/owners/ownersList.html",
+        "src/main/resources/templates/owners/ownerDetails.html"
+      ],
+      "recall": 0.0,
+      "precision": 0.2857142857142857,
+      "core_recall": 0.0,
+      "cited": [
+        "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/Owner.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/Pet.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/PetTypeRepository.java",
+        "src/main/resources/templates/pets/createOrUpdatePetForm.html",
+        "src/main/resources/templates/owners/ownersList.html",
+        "src/main/resources/templates/owners/ownerDetails.html"
+      ],
+      "lane": "question",
+      "expected_lane": null,
+      "lane_ok": true,
+      "confidence": "low",
+      "expected_confidence": null,
+      "confidence_ok": true,
+      "citations_ok": true,
+      "rubric": {
+        "scored": false,
+        "error": "no judge provider available: disabled by caller (--no-llm)",
+        "correctness": null,
+        "completeness": null,
+        "actionability": null,
+        "mean": null,
+        "raw_correctness": null,
+        "unsupported_claims": [],
+        "reasoning": "",
+        "unresolved_citations": [],
+        "model": "",
+        "cost_usd": 0.0,
+        "input_tokens": 0,
+        "output_tokens": 0
+      },
+      "determinism": {
+        "checked": true,
+        "stable": true,
+        "second_run_id": "run_26c9b02a3b9f4a1e",
+        "second_citations": [
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Owner.java:108-110",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Owner.java:117-127",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Owner.java:135-145",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Owner.java:47-176",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Owner.java:97-101",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Pet.java:44-85",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Pet.java:69-71",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Pet.java:73-75",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/PetController.java:107-137",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/PetController.java:186-200",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/PetController.java:47-207",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/PetController.java:62-65",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/PetController.java:75-87",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/PetTypeRepository.java:36-37",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/resources/templates/owners/ownerDetails.html:1-96",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/resources/templates/owners/ownersList.html:1-61",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/resources/templates/pets/createOrUpdatePetForm.html:1-34"
+        ]
+      }
+    },
+    {
+      "id": "book-visit",
+      "question": "Can a customer book an appointment for their pet, and what does that screen look like?",
+      "thread": null,
+      "run_id": "run_524033fc1c1b4d96",
+      "thread_id": "thr_dce3ee29e10f4fc1",
+      "status": "done",
+      "abort_reason": null,
+      "cost_usd": 0.0,
+      "input_tokens": 0,
+      "elapsed_s": 0.11,
+      "expected_files": [
+        "src/main/java/org/springframework/samples/petclinic/owner/VisitController.java",
+        "src/main/resources/templates/pets/createOrUpdateVisitForm.html"
+      ],
+      "core_files": [
+        "src/main/resources/templates/pets/createOrUpdateVisitForm.html"
+      ],
+      "hit": [
+        "src/main/java/org/springframework/samples/petclinic/owner/VisitController.java"
+      ],
+      "missed": [
+        "src/main/resources/templates/pets/createOrUpdateVisitForm.html"
+      ],
+      "core_hit": [],
+      "core_missed": [
+        "src/main/resources/templates/pets/createOrUpdateVisitForm.html"
+      ],
+      "bonus": [
+        "src/main/java/org/springframework/samples/petclinic/owner/Visit.java"
+      ],
+      "extra": [
+        "src/main/java/org/springframework/samples/petclinic/owner/Owner.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/Pet.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/PetValidator.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java",
+        "src/main/resources/templates/pets/createOrUpdatePetForm.html",
+        "src/main/resources/templates/owners/ownerDetails.html",
+        "src/main/resources/templates/owners/ownersList.html",
+        "src/main/resources/templates/owners/findOwners.html"
+      ],
+      "recall": 0.5,
+      "precision": 0.18181818181818182,
+      "core_recall": 0.0,
+      "cited": [
+        "src/main/java/org/springframework/samples/petclinic/owner/Owner.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/VisitController.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/PetController.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/Pet.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/PetValidator.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java",
+        "src/main/java/org/springframework/samples/petclinic/owner/Visit.java",
+        "src/main/resources/templates/pets/createOrUpdatePetForm.html",
+        "src/main/resources/templates/owners/ownerDetails.html",
+        "src/main/resources/templates/owners/ownersList.html",
+        "src/main/resources/templates/owners/findOwners.html"
+      ],
+      "lane": "question",
+      "expected_lane": null,
+      "lane_ok": true,
+      "confidence": "low",
+      "expected_confidence": null,
+      "confidence_ok": true,
+      "citations_ok": true,
+      "rubric": {
+        "scored": false,
+        "error": "no judge provider available: disabled by caller (--no-llm)",
+        "correctness": null,
+        "completeness": null,
+        "actionability": null,
+        "mean": null,
+        "raw_correctness": null,
+        "unsupported_claims": [],
+        "reasoning": "",
+        "unresolved_citations": [],
+        "model": "",
+        "cost_usd": 0.0,
+        "input_tokens": 0,
+        "output_tokens": 0
+      },
+      "determinism": {
+        "checked": true,
+        "stable": true,
+        "second_run_id": "run_9e0c357521544cf7",
+        "second_citations": [
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Owner.java:108-110",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Owner.java:117-127",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Owner.java:47-176",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java:169-177",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Pet.java:44-85",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Pet.java:77-79",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/PetController.java:107-137",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/PetController.java:144-179",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/PetController.java:186-200",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/PetController.java:47-207",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/PetValidator.java:32-64",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/Visit.java:34-68",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/VisitController.java:63-81",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/java/org/springframework/samples/petclinic/owner/VisitController.java:97-112",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/resources/templates/owners/findOwners.html:1-35",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/resources/templates/owners/ownerDetails.html:1-96",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/resources/templates/owners/ownersList.html:1-61",
+          "spring-petclinic@88e37c15cf6fc8490b01bc3e8e2c800cec1ac272:src/main/resources/templates/pets/createOrUpdatePetForm.html:1-34"
+        ]
+      }
+    }
+  ]
+}

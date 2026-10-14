@@ -1,0 +1,281 @@
+# The full evaluation set for spring-petclinic — eval/run_full.py.
+#
+# 20 questions: the 9 plain "question"/bug/change_request items and 3 traps
+# carried over from eval/smoke_questions.yaml (that file stays as the fast
+# 12-question CI hook run_smoke.py and check_determinism.py already use;
+# nothing here replaces it), plus 8 new items this set adds on top:
+#
+#   - 2 multi-hop questions, whose answer only holds together by connecting
+#     more than one module (vet <-> specialty <-> clinic listing; owner <-> pet
+#     <-> the fact that petclinic has no transfer feature at all)
+#   - 2 changelog questions — one commit-count phrased, one time-period phrased
+#   - 2 threads of 2 turns each (4 items) — a real follow-up whose correct
+#     answer depends on the previous turn's context, not just on the words in
+#     the second question alone
+#
+# `expected_files` is the recall target (same meaning as `expect` in the smoke
+# set — renamed here to match this phase's own field names). `core_files` is
+# the subset that MUST be cited or the question counts as a hard miss, even if
+# the rest of `expected_files` was reached — the file a wrong answer cannot
+# possibly have omitted. `also_credit` counts toward a bonus column, never
+# against precision or recall: there is usually more than one defensible
+# answer to "which files matter here".
+#
+# `thread` groups items that must run in ONE thread, in the order they appear
+# in this list — eval/run_full.py passes the first item's returned thread_id
+# into every later item sharing its `thread` key. `requires_prior: true` marks
+# an item whose question is deliberately under-specified without that context
+# (design law: a follow-up's evidence is allowed to include what the run
+# already established).
+
+repo: spring-petclinic
+
+questions:
+  # ---------------------------------------------------------------- carried over
+  - id: add-pet
+    question: What happens when an owner adds a new pet?
+    intent: question
+    expected_files:
+      - src/main/java/org/springframework/samples/petclinic/owner/PetController.java
+      - src/main/resources/templates/pets/createOrUpdatePetForm.html
+    core_files:
+      - src/main/java/org/springframework/samples/petclinic/owner/PetController.java
+    also_credit:
+      - src/main/java/org/springframework/samples/petclinic/owner/Pet.java
+      - src/main/java/org/springframework/samples/petclinic/owner/Owner.java
+
+  - id: vet-specialties
+    question: Where are a vet's specialties shown?
+    intent: question
+    expected_files:
+      - src/main/java/org/springframework/samples/petclinic/vet/Vet.java
+      - src/main/resources/templates/vets/vetList.html
+    core_files:
+      - src/main/java/org/springframework/samples/petclinic/vet/Vet.java
+    also_credit:
+      - src/main/java/org/springframework/samples/petclinic/vet/Specialty.java
+      - src/main/java/org/springframework/samples/petclinic/vet/VetController.java
+
+  - id: visit-missing
+    question: A visit isn't appearing on the owner page — where should I look?
+    intent: bug
+    # Two candidate faults (nothing saved, or what's saved isn't shown) —
+    # see tests/test_confidence.py for the coverage rule this is pinned to.
+    expect_confidence: [medium, high]
+    expected_files:
+      - src/main/java/org/springframework/samples/petclinic/owner/VisitController.java
+      - src/main/resources/templates/owners/ownerDetails.html
+    core_files:
+      - src/main/java/org/springframework/samples/petclinic/owner/VisitController.java
+    also_credit:
+      - src/main/java/org/springframework/samples/petclinic/owner/Visit.java
+      - src/main/java/org/springframework/samples/petclinic/owner/Owner.java
+
+  - id: pet-weight
+    question: If we add a pet weight field, what's affected?
+    intent: change_request
+    expected_files:
+      - src/main/java/org/springframework/samples/petclinic/owner/Pet.java
+      - src/main/resources/templates/pets/createOrUpdatePetForm.html
+    core_files:
+      - src/main/java/org/springframework/samples/petclinic/owner/Pet.java
+    also_credit:
+      - src/main/java/org/springframework/samples/petclinic/owner/PetController.java
+      - src/main/java/org/springframework/samples/petclinic/owner/PetValidator.java
+
+  - id: find-owner
+    question: How does someone search for an existing customer by surname?
+    intent: question
+    expected_files:
+      - src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java
+      - src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java
+    core_files:
+      - src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java
+    also_credit:
+      - src/main/resources/templates/owners/findOwners.html
+      - src/main/resources/templates/owners/ownersList.html
+
+  - id: phone-validation
+    question: What stops someone entering a bad phone number for an owner?
+    intent: question
+    expected_files:
+      - src/main/java/org/springframework/samples/petclinic/owner/Owner.java
+    core_files:
+      - src/main/java/org/springframework/samples/petclinic/owner/Owner.java
+    also_credit:
+      - src/main/resources/templates/owners/createOrUpdateOwnerForm.html
+      - src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java
+
+  - id: rename-owner-customer
+    question: We want to rename "owner" to "customer" everywhere a user can see it. What's the blast radius?
+    intent: change_request
+    expected_files:
+      - src/main/resources/templates/owners/ownerDetails.html
+      - src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java
+    core_files:
+      - src/main/resources/templates/owners/ownerDetails.html
+    also_credit:
+      - src/main/resources/templates/owners/findOwners.html
+      - src/main/resources/templates/owners/ownersList.html
+      - src/main/resources/templates/owners/createOrUpdateOwnerForm.html
+
+  - id: how-many-owners
+    # Trap 1 of 3: a data question, not a code question. No file recall is
+    # expected — reaching for files here would be the failure.
+    question: How many owners signed up last month?
+    intent: data_question
+    expected_files: []
+    expect_lane: data_question
+
+  - id: trap-owners-registered
+    # Trap 2 of 3: the same trap, independently reworded ("registered" vs
+    # "signed up", "last month" moved) — one phrasing passing isn't proof the
+    # classifier is reliable; two independently phrased traps landing on
+    # data_question is stronger evidence than one.
+    question: How many owners registered last month?
+    intent: data_question
+    expected_files: []
+    expect_lane: data_question
+
+  - id: unanswerable-double-booking
+    # Trap 3 of 3: deliberately unanswerable. petclinic's Visit is a bare
+    # date+description record with no scheduling/locking logic — there is no
+    # mechanism to find. Design law 4: abstain (low confidence) rather than
+    # invent a conflict-checking system that doesn't exist in this codebase.
+    question: How does the system stop two owners double-booking the same vet at the same time?
+    intent: question
+    expected_files: []
+    expect_confidence: low
+
+  # ---------------------------------------------------------------- multi-hop
+  - id: multi-hop-vet-removed
+    # Doesn't hold together from one file: a vet's specialties are a join
+    # table (VetRepository's cache), the listing screen renders the whole
+    # collection (Vets), and VetController is what serves it — removing a vet
+    # touches all three, not just Vet.java itself.
+    question: If we remove a vet from the clinic, what else has to change?
+    intent: change_request
+    expected_files:
+      - src/main/java/org/springframework/samples/petclinic/vet/Vet.java
+      - src/main/java/org/springframework/samples/petclinic/vet/VetController.java
+      - src/main/resources/templates/vets/vetList.html
+    core_files:
+      - src/main/java/org/springframework/samples/petclinic/vet/Vet.java
+      - src/main/java/org/springframework/samples/petclinic/vet/VetController.java
+    also_credit:
+      - src/main/java/org/springframework/samples/petclinic/vet/Vets.java
+      - src/main/java/org/springframework/samples/petclinic/vet/VetRepository.java
+
+  - id: multi-hop-owner-transfer
+    # A trap wearing a multi-hop question's clothes: petclinic has no
+    # ownership-transfer feature. The honest answer has to connect Owner (the
+    # parent collection) and Pet (fixed to one Owner at creation, never
+    # reassigned) to say plainly that this isn't supported today — a
+    # single-file answer is a sign the model didn't check both sides.
+    question: An owner is transferring one of their pets to a different owner — what needs to be updated?
+    intent: change_request
+    expected_files:
+      - src/main/java/org/springframework/samples/petclinic/owner/Owner.java
+      - src/main/java/org/springframework/samples/petclinic/owner/Pet.java
+    core_files:
+      - src/main/java/org/springframework/samples/petclinic/owner/Owner.java
+      - src/main/java/org/springframework/samples/petclinic/owner/Pet.java
+    also_credit:
+      - src/main/java/org/springframework/samples/petclinic/owner/PetController.java
+      - src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java
+
+  # ---------------------------------------------------------------- changelog
+  - id: changelog-last-commits
+    # Phrase-triggered by an explicit commit count (graph.py::_COMMIT_COUNT) —
+    # design law 3's documented exception: the lane is decided before any
+    # retrieval, because the evidence is a commit range, not a search.
+    question: What changed in the last 10 commits?
+    intent: question
+    expect_lane: changelog
+    expected_files: []
+    expect_min_citations: 2
+
+  - id: changelog-last-month
+    # Phrase-triggered by a named period instead (graph.py::_since_expression).
+    question: What shipped in the last month?
+    intent: question
+    expect_lane: changelog
+    expected_files: []
+    expect_min_citations: 1
+
+  # ---------------------------------------------------------------- thread follow-ups
+  - id: thread-visit-1
+    thread: visit-thread
+    question: What happens when someone books a visit for their pet?
+    intent: question
+    expected_files:
+      - src/main/java/org/springframework/samples/petclinic/owner/VisitController.java
+      - src/main/resources/templates/pets/createOrUpdateVisitForm.html
+    core_files:
+      - src/main/java/org/springframework/samples/petclinic/owner/VisitController.java
+    also_credit:
+      - src/main/java/org/springframework/samples/petclinic/owner/Visit.java
+
+  - id: thread-visit-2
+    thread: visit-thread
+    requires_prior: true
+    # Only makes sense as a follow-up to thread-visit-1 — "it" has no
+    # antecedent without the prior turn's context (orchestrator/run.py's
+    # `_prior_context`). petclinic's Visit is a bare date+description record
+    # with no past/future validation, so the honest answer is "nothing does" —
+    # a good check that a follow-up doesn't invent a validation rule to sound
+    # complete.
+    question: And what stops them from booking it for a date in the past?
+    intent: question
+    expected_files: []
+    expect_confidence: [low, medium]
+
+  - id: thread-species-1
+    thread: species-thread
+    question: What types of pets can an owner register?
+    intent: question
+    expected_files:
+      - src/main/java/org/springframework/samples/petclinic/owner/PetType.java
+    core_files:
+      - src/main/java/org/springframework/samples/petclinic/owner/PetType.java
+    also_credit:
+      - src/main/java/org/springframework/samples/petclinic/owner/PetTypeRepository.java
+      - src/main/java/org/springframework/samples/petclinic/owner/PetController.java
+
+  - id: thread-species-2
+    thread: species-thread
+    requires_prior: true
+    # The honest answer connects back to "where those types come from" (thread
+    # turn 1: a database table, no admin UI) to conclude a PM cannot do this
+    # alone today — a follow-up that answers this without the prior turn's
+    # context would have to re-derive it from scratch or guess.
+    question: Could a product manager add a new one without an engineer?
+    intent: question
+    expected_files: []
+    also_credit:
+      - src/main/java/org/springframework/samples/petclinic/owner/PetType.java
+      - src/main/java/org/springframework/samples/petclinic/owner/PetTypeRepository.java
+
+  # ---------------------------------------------------------------- rounding out
+  - id: species-list
+    question: Where does the list of animal species come from when adding a pet?
+    intent: question
+    expected_files:
+      - src/main/java/org/springframework/samples/petclinic/owner/PetType.java
+    core_files:
+      - src/main/java/org/springframework/samples/petclinic/owner/PetType.java
+    also_credit:
+      - src/main/java/org/springframework/samples/petclinic/owner/PetTypeRepository.java
+      - src/main/java/org/springframework/samples/petclinic/owner/PetController.java
+      - src/main/java/org/springframework/samples/petclinic/owner/PetTypeFormatter.java
+
+  - id: book-visit
+    question: Can a customer book an appointment for their pet, and what does that screen look like?
+    intent: question
+    expected_files:
+      - src/main/java/org/springframework/samples/petclinic/owner/VisitController.java
+      - src/main/resources/templates/pets/createOrUpdateVisitForm.html
+    core_files:
+      - src/main/resources/templates/pets/createOrUpdateVisitForm.html
+    also_credit:
+      - src/main/java/org/springframework/samples/petclinic/owner/Visit.java

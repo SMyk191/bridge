@@ -1,0 +1,48 @@
+[project]
+name = "bridge"
+version = "0.1.0"
+description = "Bridge — read-only, codebase-grounded translation layer between Product and Engineering."
+requires-python = ">=3.11"
+dependencies = [
+    # structural Java parsing without a JVM; pinned as a pair because the language
+    # ABI must match the runtime.
+    "tree-sitter>=0.23,<0.25",
+    "tree-sitter-java==0.23.5",
+    "anthropic>=0.69",              # LLM provider — Claude
+    "google-genai>=1.0",            # LLM provider — Gemini
+    "python-dotenv>=1.0",           # loads .env at config.py import time
+    "sentence-transformers>=3",     # BAAI/bge-small-en-v1.5 embeddings
+    "lancedb>=0.15",                # vector store for semantic_search
+    "pyarrow>=14",                  # lancedb's table/schema layer
+    "pyyaml>=6",                    # config/vocab.*.yaml
+    "fastapi>=0.115",               # HTTP layer over the orchestrator
+    "uvicorn[standard]>=0.32",      # ASGI server for `make api`
+    # --- persistent index (phase E). One Postgres holds every snapshot of every
+    # repo; the four below are the smallest set that gets us there.
+    "sqlalchemy>=2.0",              # Core only (no ORM): table defs + typed SQL
+    "alembic>=1.13",                # schema migrations, versioned in-repo
+    "psycopg[binary]>=3.2",         # Postgres driver; binary wheel = no libpq build
+    "pgvector>=0.3",                # the `vector` column type for SQLAlchemy
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8",  # test runner
+    # A real PostgreSQL 16.2 + pgvector as a pip wheel, run from the venv. This
+    # machine has no Docker; docker-compose.yml is still the deployment path,
+    # and the DSN is the only difference between the two.
+    "pgserver>=0.1.4",
+]
+
+[project.scripts]
+bridge = "bridge.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["bridge*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

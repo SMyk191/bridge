@@ -1,0 +1,145 @@
+# Smoke evaluation for spring-petclinic.
+#
+# Ten product-language questions with the files a good answer must reach.
+# `expect` is the recall target: files the impact map should cite. `forbid` is
+# optional — files that appearing would mean retrieval drifted.
+#
+# These are deliberately phrased the way a product person writes, not the way the
+# code is named. That gap is the whole point of the vocabulary and the
+# description-embedding layers; a question that already contains the class name
+# tests nothing.
+
+repo: spring-petclinic
+
+questions:
+  - id: add-pet
+    question: What happens when an owner adds a new pet?
+    intent: question
+    expect:
+      - src/main/java/org/springframework/samples/petclinic/owner/PetController.java
+      - src/main/resources/templates/pets/createOrUpdatePetForm.html
+    also_credit:
+      - src/main/java/org/springframework/samples/petclinic/owner/Pet.java
+      - src/main/java/org/springframework/samples/petclinic/owner/Owner.java
+
+  - id: vet-specialties
+    question: Where are a vet's specialties shown?
+    intent: question
+    expect:
+      - src/main/java/org/springframework/samples/petclinic/vet/Vet.java
+      - src/main/resources/templates/vets/vetList.html
+    also_credit:
+      - src/main/java/org/springframework/samples/petclinic/vet/Specialty.java
+      - src/main/java/org/springframework/samples/petclinic/vet/VetController.java
+
+  - id: visit-missing
+    question: A visit isn't appearing on the owner page — where should I look?
+    intent: bug
+    # A bug has two candidate faults — nothing is saved, or what is saved is not
+    # shown — and this codebase has both sides. Which level is honest depends on
+    # whether the answer's citations cover both, checked by rules rather than
+    # asserted by the model (backend/bridge/orchestrator/confidence.py).
+    #
+    # Set to `medium` in phase B, when the answer reliably examined only the
+    # display path. Phase C's follow-up search recovers the write side — the run
+    # now cites `VisitController#processNewVisitForm` — so `high` became the
+    # correct outcome and a bare `medium` would have started failing for the
+    # right reason. Both are accepted: `high` when the follow-up closes the gap,
+    # `medium` when it does not, and either way the level is earned rather than
+    # claimed. What must not happen is `high` with only one side cited, and that
+    # is pinned directly by tests/test_confidence.py rather than by this file.
+    expect_confidence: [medium, high]
+    expect:
+      - src/main/java/org/springframework/samples/petclinic/owner/VisitController.java
+      - src/main/resources/templates/owners/ownerDetails.html
+    also_credit:
+      - src/main/java/org/springframework/samples/petclinic/owner/Visit.java
+      - src/main/java/org/springframework/samples/petclinic/owner/Owner.java
+
+  - id: pet-weight
+    question: If we add a pet weight field, what's affected?
+    intent: change_request
+    expect:
+      - src/main/java/org/springframework/samples/petclinic/owner/Pet.java
+      - src/main/resources/templates/pets/createOrUpdatePetForm.html
+    also_credit:
+      - src/main/java/org/springframework/samples/petclinic/owner/PetController.java
+      - src/main/java/org/springframework/samples/petclinic/owner/PetValidator.java
+
+  - id: find-owner
+    question: How does someone search for an existing customer by surname?
+    intent: question
+    expect:
+      - src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java
+      - src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java
+    also_credit:
+      - src/main/resources/templates/owners/findOwners.html
+      - src/main/resources/templates/owners/ownersList.html
+
+  - id: book-visit
+    question: Can a customer book an appointment for their pet, and what does that screen look like?
+    intent: question
+    expect:
+      - src/main/java/org/springframework/samples/petclinic/owner/VisitController.java
+      - src/main/resources/templates/pets/createOrUpdateVisitForm.html
+    also_credit:
+      - src/main/java/org/springframework/samples/petclinic/owner/Visit.java
+
+  - id: phone-validation
+    question: What stops someone entering a bad phone number for an owner?
+    intent: question
+    expect:
+      - src/main/java/org/springframework/samples/petclinic/owner/Owner.java
+    also_credit:
+      - src/main/resources/templates/owners/createOrUpdateOwnerForm.html
+      - src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java
+
+  - id: species-list
+    question: Where does the list of animal species come from when adding a pet?
+    intent: question
+    expect:
+      - src/main/java/org/springframework/samples/petclinic/owner/PetType.java
+    also_credit:
+      - src/main/java/org/springframework/samples/petclinic/owner/PetTypeRepository.java
+      - src/main/java/org/springframework/samples/petclinic/owner/PetController.java
+      - src/main/java/org/springframework/samples/petclinic/owner/PetTypeFormatter.java
+
+  - id: rename-owner-customer
+    question: We want to rename "owner" to "customer" everywhere a user can see it. What's the blast radius?
+    intent: change_request
+    expect:
+      - src/main/resources/templates/owners/ownerDetails.html
+      - src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java
+    also_credit:
+      - src/main/resources/templates/owners/findOwners.html
+      - src/main/resources/templates/owners/ownersList.html
+      - src/main/resources/templates/owners/createOrUpdateOwnerForm.html
+
+  - id: how-many-owners
+    question: How many owners signed up last month?
+    intent: data_question
+    # A data question must be redirected, not answered from code. No file recall
+    # is expected — reaching for files here would be the failure.
+    expect: []
+    expect_lane: data_question
+
+  - id: trap-owners-registered
+    # Same trap as how-many-owners, deliberately reworded ("registered" vs
+    # "signed up", "last month" moved) — the interpreter's question/data_question
+    # boundary showed real sampling variance in live testing (phase 4), so one
+    # phrasing passing isn't proof the classifier is reliable; two independently
+    # phrased traps both landing on data_question is stronger evidence than one.
+    question: How many owners registered last month?
+    intent: data_question
+    expect: []
+    expect_lane: data_question
+
+  - id: unanswerable-double-booking
+    # Deliberately unanswerable: petclinic's Visit is a bare date+description
+    # record with no scheduling/locking logic at all — there is no mechanism to
+    # find. Design law 4 says the run must abstain (low confidence) rather than
+    # invent a conflict-checking system that doesn't exist in this codebase.
+    question: How does the system stop two owners double-booking the same vet at the same time?
+    intent: question
+    expect: []
+    expect_confidence: low

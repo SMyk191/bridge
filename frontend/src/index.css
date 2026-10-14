@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  @apply bg-white text-slate-900 text-sm antialiased;
+}
+
+/* Markdown bodies (answers, ticket briefs) render through react-markdown as
+   plain elements with no classes of their own — style them here once instead
+   of threading `prose` classes through every consumer. */
+.md-body {
+  @apply text-sm leading-relaxed text-slate-800;
+}
+.md-body > * + * {
+  @apply mt-3;
+}
+.md-body h1, .md-body h2, .md-body h3 {
+  @apply font-semibold text-slate-900;
+}
+.md-body h1 { @apply text-base; }
+.md-body h2 { @apply text-sm; }
+.md-body h3 { @apply text-sm; }
+.md-body ul {
+  @apply list-disc pl-5 space-y-1;
+}
+.md-body ol {
+  @apply list-decimal pl-5 space-y-1;
+}
+.md-body code {
+  @apply font-mono text-xs bg-slate-100 rounded px-1 py-0.5;
+}
+.md-body pre {
+  @apply font-mono text-xs bg-slate-900 text-slate-100 rounded-md p-3 overflow-x-auto;
+}
+.md-body pre code {
+  @apply bg-transparent p-0;
+}
+.md-body a {
+  @apply text-indigo-600 underline underline-offset-2;
+}
+.md-body strong {
+  @apply font-semibold text-slate-900;
+}
+.md-body blockquote {
+  @apply border-l-2 border-slate-200 pl-3 text-slate-600 italic;
+}
